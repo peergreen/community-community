@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<component-set>
+  <components>
+    <component>
+      <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+      <role-hint>community-release</role-hint>
+      <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
+      <configuration>
+        <lifecycles>
+          <lifecycle>
+            <id>default</id>
+            <phases>
+              <process-resources>org.apache.maven.plugins:maven-resources-plugin:resources</process-resources>
+              <package>com.peergreen.community:community-release-plugin:release</package>
+              <install>org.apache.maven.plugins:maven-install-plugin:install</install>
+              <deploy>org.apache.maven.plugins:maven-deploy-plugin:deploy</deploy>
+            </phases>
+          </lifecycle>
+        </lifecycles>
+      </configuration>
+    </component>
+
+    <component>
+      <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+      <role-hint>community-release</role-hint>
+      <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
+      <configuration>
+        <type>community-release</type>
+        <includesDependencies>false</includesDependencies>
+        <language>java</language>
+        <extension>jar</extension>
+        <addedToClasspath>false</addedToClasspath>
+        <packaging>community-release</packaging>
+      </configuration>
+    </component>
+  </components>
+</component-set>
+
