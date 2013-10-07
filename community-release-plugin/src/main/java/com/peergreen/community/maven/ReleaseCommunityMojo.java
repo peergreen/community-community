@@ -81,7 +81,7 @@ public class ReleaseCommunityMojo extends AbstractMojo {
     private RepositorySystem repositorySystem;
 
     @Parameter(defaultValue = "com.peergreen.community")
-    private String communityGroupdId;
+    private String communityGroupId;
 
     @Parameter
     private String communityArtifactId;
@@ -164,7 +164,7 @@ public class ReleaseCommunityMojo extends AbstractMojo {
             communityArtifactId = artifactId;
         }
 
-        Artifact deployArtifact = new DefaultArtifact(communityGroupdId, communityArtifactId, type, version);
+        Artifact deployArtifact = new DefaultArtifact(communityGroupId, communityArtifactId, type, version);
         deployArtifact = deployArtifact.setVersion(communityVersion).setFile(result.getArtifact().getFile());
 
         // Generate the pom file
